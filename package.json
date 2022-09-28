@@ -20,6 +20,8 @@
     "axios": "^0.27.2",
     "dotenv": "^16.0.2",
     "express": "^4.18.1",
-    "express-async-handler": "^1.2.0"
+    "express-async-handler": "^1.2.0",
+    "inversify": "^6.0.1",
+    "reflect-metadata": "^0.1.13"
   }
 }

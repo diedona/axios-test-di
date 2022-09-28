@@ -1,12 +1,13 @@
+import axios from "axios";
 import { IRequester } from "../../domain/requester.interface";
-import axios, { AxiosStatic } from "axios";
+import { injectable } from "inversify";
+import "reflect-metadata";
 
+@injectable()
 export class AxiosRequester implements IRequester {
 
-  private _axios: AxiosStatic = axios;
-
   async get<T>(url: string): Promise<T> {
-    const { data } = await this._axios.get<T>(url);
+    const { data } = await axios.get<T>(url);
     return data;
   }
 
