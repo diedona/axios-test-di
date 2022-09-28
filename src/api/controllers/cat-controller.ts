@@ -1,10 +1,13 @@
 import { Request, Response } from "express";
 import { IRequester } from "../../domain/requester.interface";
+import { TYPES } from "../../infrastructure/types";
+import { inject, injectable } from "inversify";
 
+@injectable()
 export class CatController {
 
   constructor(
-    private requester: IRequester
+    @inject(TYPES.IRequester) private requester: IRequester
   ) {
   }
 
