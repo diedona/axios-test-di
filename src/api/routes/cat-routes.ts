@@ -1,6 +1,6 @@
 import express from "express";
 import asyncHandler from "express-async-handler";
-import { container } from "../inversify.config";
+import { container } from "../IoC/inversify.config";
 import { CatController } from "../controllers/cat-controller";
 
 const catController: CatController = container.get(CatController);

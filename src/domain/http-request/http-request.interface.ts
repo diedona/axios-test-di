@@ -1,3 +1,3 @@
-export interface IRequester {
+export interface IHttpRequest {
   get<T>(url: string): Promise<T>
 }

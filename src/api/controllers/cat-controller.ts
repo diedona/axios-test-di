@@ -1,18 +1,18 @@
 import { Request, Response } from "express";
-import { IRequester } from "../../domain/requester.interface";
-import { TYPES } from "../../infrastructure/types";
 import { inject, injectable } from "inversify";
+import IocIdentifiers from "../../domain/constants/identifiers";
+import { IHttpRequest } from "../../domain/http-request/http-request.interface";
 
 @injectable()
 export class CatController {
 
   constructor(
-    @inject(TYPES.IRequester) private requester: IRequester
+    @inject(IocIdentifiers.IHttpRequest) private httpRequest: IHttpRequest
   ) {
   }
 
   private async fetchCatFact(): Promise<string> {
-    const { fact } = await this.requester.get<any>('https://catfact.ninja/fact');
+    const { fact } = await this.httpRequest.get<any>('https://catfact.ninja/fact');
     return fact;
   }
 
